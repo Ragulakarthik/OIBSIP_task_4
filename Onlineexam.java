@@ -1,0 +1,276 @@
+//Your pass word is demo123//
+import java.awt.event.*;
+import javax.swing.*;
+public class Onlineexam implements ActionListener
+{ 
+	int marks=0,question=0;
+	JFrame f1=new JFrame("LOGIN");
+	JFrame f2=new JFrame("Profile");
+	JFrame f3=new JFrame("ONLINE TEST");
+	JLabel l1=new JLabel("STUDENT'S  LOGIN");
+	JLabel l2=new JLabel("Rollno :");
+	JLabel l3=new JLabel("Password :");
+	JLabel l4=new JLabel("PROFILE");
+	JLabel l5=new JLabel("Roll No :");
+	JLabel l6=new JLabel("Password :");
+	JLabel l7=new JLabel();
+	JLabel l8=new JLabel();
+	JLabel l9=new JLabel("ONLINE EXAMINATION");
+	JLabel l10=new JLabel("Full Name :");
+	JLabel l11=new JLabel("Branch :");
+	JLabel l12=new JLabel("Gender :");
+	JLabel l13=new JLabel("----");
+	JLabel l14=new JLabel("----");
+	JLabel l15=new JLabel("----");
+	JLabel l16=new JLabel();
+	JLabel l17=new JLabel();
+	JButton b1=new JButton("Login");
+	JButton b2=new JButton("Exit");
+	JButton b4=new JButton("Update Profile");
+	JButton b5=new JButton("Change Password");
+	JButton b6=new JButton("Take Test");
+	JButton b7=new JButton("Check Marks");
+	JButton b8=new JButton("Next");
+	JButton b9=new JButton("Submit");
+	JButton b10=new JButton("Log out");
+	ButtonGroup bg=new ButtonGroup();
+	JRadioButton r[]=new JRadioButton[5];
+	JTextField tf1=new JTextField();
+	JTextField tf2=new JTextField();
+	public Onlineexam()
+	{
+		l1.setBounds(230,50,200,30);
+		l2.setBounds(100,150,100,30);
+		l3.setBounds(100,200,100,30);
+		l4.setBounds(70,20,100,30);
+		l5.setBounds(20,100,80,30);
+		l6.setBounds(20,150,80,30);
+		l7.setBounds(100,100,100,30);
+		l8.setBounds(100,150,100,30);
+		l9.setBounds(250,20,150,30);
+		l10.setBounds(20,200,100,30);
+		l11.setBounds(20,250,100,30);
+		l12.setBounds(20,300,100,30);
+		l13.setBounds(90,200,100,30);
+		l14.setBounds(90,250,100,30);
+		l15.setBounds(90,300,100,30);
+		l16.setBounds(30,40,500,30);
+		l17.setBounds(250,100,130,30);
+		tf1.setBounds(250,150,150,30);
+		tf2.setBounds(250,200,150,30);
+		b1.setBounds(300,300,100,30);
+		b2.setBounds(100,300,100,30);
+		b4.setBounds(20,350,150,30);
+		b5.setBounds(20,400,150,30);
+		b6.setBounds(250,100,130,30);
+		b7.setBounds(250,150,130,30);
+		b8.setBounds(100,250,100,30);
+		b9.setBounds(250,250,100,30);
+		b10.setBounds(250,200,130,30);
+		for(int i=0;i<5;i++)
+		{
+			r[i]=new JRadioButton();
+			f3.add(r[i]);
+			bg.add(r[i]);
+		}
+		r[0].setBounds(50,80,250,30);
+		r[1].setBounds(50,120,250,30);
+		r[2].setBounds(50,160,250,30);
+		r[3].setBounds(50,200,250,30);
+		set();
+		f1.add(l1);
+		f1.add(l2);
+		f1.add(l3);
+		f1.add(tf1);
+		f1.add(tf2);
+		f1.add(b1);
+		f1.add(b2);
+		f2.add(l4);
+		f2.add(l5);
+		f2.add(l6);
+		f2.add(l7);
+		f2.add(l8);
+		f2.add(l9);
+		f2.add(l10);
+		f2.add(l11);
+		f2.add(l12);
+		f2.add(l13);
+		f2.add(l14);
+		f2.add(l15);
+		f2.add(l17);
+		f2.add(b4);
+		f2.add(b5);
+		f2.add(b6);
+		f2.add(b7);
+		f2.add(b10);
+		f3.add(l16);
+		f3.add(b8);
+		f3.add(b9);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		b7.addActionListener(this);
+		b8.addActionListener(this);
+		b9.addActionListener(this);
+		b10.addActionListener(this);
+		b9.setVisible(false);
+		f1.setLayout(null);
+		f1.setSize(600,650);
+		f1.setVisible(true);
+		f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		if(ae.getSource()==b1)
+		{
+			String s1=tf2.getText();
+			String s2="demo123";
+			String s3=tf1.getText();
+			l7.setText(s3);
+			l8.setText(s1);
+			if(s1.equals(s2)&&s3.length()>3)
+			{
+				f2.setSize(600,650);
+				f2.setLayout(null);
+				f2.setVisible(true);
+				f1.setVisible(false);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null,"Incorrect details","Invalid Details",JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		else if(ae.getSource()==b2)
+		{
+			f1.setVisible(false);
+		}
+		else if(ae.getSource()==b4)
+		{
+			String st2=JOptionPane.showInputDialog("Enter FullName");
+			l13.setText(st2);
+			String st3=JOptionPane.showInputDialog("Enter Branch");
+			l14.setText(st3);			
+			String st4=JOptionPane.showInputDialog("Enter Gender");
+			l15.setText(st4);
+		}
+		else if(ae.getSource()==b5)
+		{
+			String st1=JOptionPane.showInputDialog("Enter new Password");
+			l8.setText(st1);
+		}
+		else if(ae.getSource()==b6)
+		{
+			f3.setSize(600,650);
+			f3.setLayout(null);
+			f3.setVisible(true);
+		}
+		else if(ae.getSource()==b7)
+		{
+			JOptionPane.showMessageDialog(f3,"You got "+marks+" / 50");
+		}
+		else if(ae.getSource()==b8)
+		{
+			if(check())
+			{
+				marks+=10;
+			}
+			question++;
+			set();
+			if(question==4)
+			{
+				b8.setVisible(false);
+				b9.setVisible(true);
+			}
+		}
+		else if(ae.getSource()==b9)
+		{
+			if(check())
+			{
+				marks+=10;
+			}
+			JOptionPane.showMessageDialog(f3,"You got "+marks+" / 50");
+			f3.setVisible(false);
+			b6.setVisible(false);
+			l17.setText("Test completed");
+		}
+		else if(ae.getSource()==b10)
+		{
+			JOptionPane.showMessageDialog(f2,"Thank you");
+			f2.setVisible(false);
+		}
+	}
+	public void set()
+	{
+		r[4].setSelected(true);
+		if(question==0)
+		{
+			l16.setText("1) What is the full form of JVM in java ?");
+			r[0].setText("Java virtual machine");
+			r[1].setText("Java visual machine");
+			r[2].setText("Java value method");
+			r[3].setText("Java void method");
+		}
+		if(question==1)
+		{
+			l16.setText("2) What is the full form of JDK in java ?");
+			r[0].setText("Java downloading kit");
+			r[1].setText("Java downloaded kit");
+			r[2].setText("Java development kit");
+			r[3].setText("Java dependable kit");
+		}
+		if(question==2)
+		{
+			l16.setText("3) What is the full form of API in java ?");
+			r[0].setText("Applied programming interface");
+			r[1].setText("Applied public interface");
+			r[2].setText("Application programming interface");
+			r[3].setText("Applet programming interface");
+		}
+		if(question==3)
+		{
+			l16.setText("4) What is the full form of AWT in java ?");
+			r[0].setText("Abstract window toolkit");
+			r[1].setText("Abstraction window toolking");
+			r[2].setText("Attractive window tools");
+			r[3].setText("Allows window tools");
+		}
+		if(question==4)
+		{
+			l16.setText("5) How many types of exceptions are there in java ?");
+			r[0].setText("1");
+			r[1].setText("2");
+			r[2].setText("3");
+			r[3].setText("4");
+		}
+	}
+	boolean check()
+	{
+		if(question==0)
+		{
+			return (r[0].isSelected());
+		}
+		if(question==1)
+		{
+			return (r[2].isSelected());
+		}
+		if(question==2)
+		{
+			return (r[2].isSelected());
+		}
+		if(question==3)
+		{
+			return (r[0].isSelected());
+		}
+		if(question==4)
+		{
+			return (r[1].isSelected());
+		}
+		return false;
+	}
+	public static void main(String args[])
+	{
+		new Onlineexam();
+	}
+}
